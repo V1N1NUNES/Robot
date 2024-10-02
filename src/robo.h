@@ -5,7 +5,7 @@
 typedef struct Ponto {
     int X; 
     int Y;
-    struct Ponto *Próximo; //ponteiro do próximo ponto e suas coordenadas
+    struct Ponto *proximo; //ponteiro do próximo ponto e suas coordenadas
 } Ponto;
 
 typedef struct Caminho {
