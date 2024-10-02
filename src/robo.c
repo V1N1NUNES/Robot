@@ -67,7 +67,6 @@ Ponto Final(Caminho *C)
 
     for (int i = 0; i < C->N; i++)
     {
- 
         if (i % 2 == 0)
         {
             distancia++;
@@ -89,7 +88,6 @@ Ponto Final(Caminho *C)
                 break;
         }
     }
-
     final.X = x;
     final.Y = y; 
 
@@ -107,7 +105,6 @@ int Distancia(Caminho *C)
         {
             distancia++;
         }
-
         distanciaTotal += distancia;
     }
 
