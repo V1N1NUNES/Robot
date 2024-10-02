@@ -9,13 +9,17 @@
 int main()
 {
     int ciclos = 0;
-    Caminho road;
+    Caminho *road;
+    int percorrido = 0;
+    Ponto chegada;
 
     printf("Robot road\n\n");
     printf("Digite a quantidade de ciclos que deseja que o robô percorra:\n");
     scanf("%d", &ciclos);
 
-    iniciarCaminho(ciclos);
+    road = iniciarCaminho(ciclos);
+    chegada = Final(road);
+    percorrido = Distancia(road);
 }
 
 
@@ -25,21 +29,52 @@ int main()
 Caminho *iniciarCaminho(int N)
 {
     //NovoCaminho passa a ter o tamanho de N caminhos
-    Caminho *NovoCaminho = malloc(N * sizeof(Caminho));
+    Caminho *NovoCaminho = malloc(sizeof(Caminho));
     
     if(NovoCaminho == NULL)
     {
-        printf("Erro na alocação de memória para o caminho.\n");
+        printf("Erro na alocação de memória.\n");
         exit(1);
     }
+
+    NovoCaminho->Origem = (Ponto *) malloc(sizeof(Ponto));
     
+    //inicializa as variaveis
+    NovoCaminho->N = N;
+    NovoCaminho->Distancia = 0;
+    NovoCaminho->Origem->X = 0;
+    NovoCaminho->Origem->Y = 0;
+    NovoCaminho->Origem->Próximo = NULL;
+
+    return NovoCaminho;
 }
 
 
 //Função que retornará o ponto final ocupado pelo robô depois de N ciclos. Por exemplo, caso N seja 6, o valor de retorno será o ponto para o qual X = 2 e Y = 2; e, caso N seja 16, o ponto terá coordenadas X = -2 e Y = -4.
 Ponto Final(Caminho *C)
 {
+    Ponto chegada;
 
+    for(int i=0;i< C->N;i++)
+    {
+        if(C->Origem->X == i)
+        {
+            chegada.X = i+1;
+            C->Origem->X = chegada.X;
+            //armazenar as coordenadas do ponto(X = 1 ; Y = 0)
+        }
+        for(int j=0;j<C->N;j++)
+        {
+            if(C->Origem->Y == j)
+            {
+                chegada.Y = j+1;
+                C->Origem->Y = chegada.Y;
+                //armazenar as coordenadas do ponto(X = 1 ; Y = 1)
+            }
+        }
+    }
+
+    return chegada;
 }
 
 
