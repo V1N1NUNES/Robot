@@ -18,7 +18,11 @@ A complexidade ciclomática mede o número de caminhos independetens que o códi
 Cobertura de código nada mais é do que à extensão em que o código é testado por testes automatizados. Nesse código não foi encontrado nenhum tipo de teste automatizado. O que implica uma cobertura de código desconhecida e possivelmente baixa. É altamente recomendável que se implemente testes automatizados para melhor cobertura de código.<br><br>
 
    #### __implementações:__
-<!-- Implementação dos testes aqui -->
+   - Função main: Cobertura de código = 1 (verificação de entrada por parte do usuário)
+
+   - Função Iniciarcaminho: Cobertura de código = 2 (Verificação de alocação de memória para "*Novocaminho" e "NovoCaminho->Origem")
+
+   - Função: LiberarCaminho = 2 (Estrutura condicionais para a liberação ou não de memória) 
 
 <br><br>
 
@@ -59,9 +63,9 @@ Más práticas de codificação podem levar a código frágil e difícil de mant
    - Declarações Globais: O uso de variáveis globais. Por exemplo: (int ciclos).
 
    #### __Solução:__
-   - Falta de Liberação de Memória: Implementar a liberação de memória em verificações e quando os valores ja foram capturados. 
+   - Falta de Liberação de Memória: Liberação de memória com funções da própria linguagem C após os dados capturados ou depois de uma verificação e resultado inválido. 
 
-   - Declarações Globais:
+   - Declarações Globais: Incluir variáveis globais dentro da função principal. Funcionamento somente durante a compilação.
 <br><br>
 
 ### 6. __Vulnerabilidades de Segurança :__ 
@@ -72,16 +76,11 @@ Vulnerabilidades de segurança são falhas que podem ser exploradas para comprom
 
    - Erro de Alocação de Memória: Falta de tratamento de erro adequado após a alocação de memória.
 
-   - Recomendações: Adicionar Testes Unitários: Implementar testes para todas as funções para garantir alta cobertura de código.
-
-   - Refatoração de Código: Reduzir a duplicação e melhorar o gerenciamento de memória.
-
-   - Validação de Entrada: Adicionar validação de entrada para garantir valores válidos.
-
-   - Liberação de Memória: Certificar-se de que toda memória alocada dinamicamente seja liberada adequadamente.
-
    #### __Solução:__
-   <!--escrever soluções-->
+   - Falta de Validação de Entrada: Adicionar pequenos blocos de código ou funções para a validação e entrada correta de dados por parte do usuário.
+
+   - Erro de Alocação de Memória: Adicionar confirmações e validações para alocação de memória em diversos pontos do código.
+   
 <br><br>
 
 

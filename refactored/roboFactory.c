@@ -37,6 +37,7 @@ Caminho *iniciarCaminho(int N)
         printf("Erro na alocação de memória.\n");
         exit(1);
     }
+    //printf("Alocação de memória bem sucedida!!\n\n");
 
     // alocação de todos os pontos em um bloco de memória
     NovoCaminho->Origem = malloc(N * sizeof(Ponto));
@@ -48,6 +49,7 @@ Caminho *iniciarCaminho(int N)
         free(NovoCaminho);
         exit(1);
     }
+    printf("Alocação de memória para Origem bem sucedida!\n\n");
 
     NovoCaminho->N = N;
     NovoCaminho->Distancia = 0;
@@ -90,7 +92,6 @@ Ponto Final(Caminho *C)
                 break;
         }
     }
-
     return final;
 }
 
